@@ -1,0 +1,90 @@
+doctype html
+html lang="en"
+  head
+    meta charset="UTF-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title Her Gorgeous Past
+    link rel="stylesheet" href="/css/stylep.css"
+  body
+    div#grid_wrapper_collection
+      header
+        p Every past has its beauty
+      
+      nav
+        ul#nav_links
+          li
+            a href="/index" Home
+          li
+            a href="/spring_collection" Shop
+          li#shop_name
+            a href="/index" Her Gorgeous Past
+          li
+            a href="/gallery" Gallery
+          li
+            a href="/member" Member  
+        / a#shop_name_mobil href="index.html" Her Gorgeous Past
+        / figure#menu_icon
+        /   img#rose_menu_icon src="img/menu_icon.png" alt="Menu icon"
+      
+      aside#aside_collection_page
+        h2 Her seasons
+        div.season
+          - ["spring", "summer", "autumn", "winter"].each do |season|
+            figure.season_card
+              img.img_season src="img/#{season}.jpg" alt="Img #{season.capitalize}Card"
+              a.button_season href="#{season}_collection.html" = season.capitalize
+
+      main.main_collection#main_collection_spring
+        img#img_main_spring_1 src="img/spring_main.jpg" alt="Img1 SpringMain"
+        article#text_main_spring
+          h2 Her Last Spring
+          p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro officiis blanditiis nostrum magni libero delectus, dicta tempore maxime, quibusdam velit officia sit! Magnam voluptatibus modi quidem esse eos laboriosam
+        img#img_main_spring_2 src="img/spring_main2.jpg" alt="Img2 SpringMain"
+
+      section#section1_collection
+        h2 Popular Catergories
+        div.popular_box
+          - (1..3).each do |i|
+            figure.popular_categories
+              img.img_popular src="img/popularspring#{i}.png" alt="Img#{i} Popular Spring"
+              p.description_popular Whispering winds, dancing leaves, nature's symphony, my soul finds
+              p.pris_popular $20
+
+      section#section2_collection
+        h2.product_category Her spring fashion
+        div.product_container
+          - (1..5).each do |i|
+            article.product_card
+              figure.product_img
+                img.product_thumb src="img/product#{i}.jpg" alt="product#{i} spring"
+              div.product_info
+                h2.product_brand Brand
+                p.product_description A short line about her product
+                span.price $#{i * 10}
+
+      footer
+        section#social_media
+          h3 Her Gorgeous Past
+          ul.socialmedia_logo
+            - ["facebook", "instagram", "twitter", "pinterest"].each do |logo|
+              li
+                img src="img/#{logo}.png" alt="Logo #{logo}"
+        section#contact
+          h4 Contact
+          p +123456789
+          p info@hergorgeouspast.com
+          p 506 S.Washington Avenue
+          p Royal Oak.Michigan 48067
+        section#quick_links
+          h4 Quick Links
+          a href="/index" Home
+          a href="/gallery" Products
+          a href="/userlogin/register" Register
+          a href="/userlogin/login" Log in
+        section#subcribe
+          h2 Be Her Friends
+          h4 Leave your name to stay with her
+          div#subcribe_box
+            img#email_icon src="img/gmail.png" alt="Email Icon"
+            p Enter your email

@@ -1,0 +1,113 @@
+doctype html
+html
+  head
+    meta charset="UTF-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title Her Gorgeous Past
+    link rel="stylesheet" href="/css/stylep.css"
+  body
+    #grid_wrapper
+      header
+        p Every past has its beauty
+      nav
+        ul#nav_links
+          li
+            a href="/index" Home
+          li
+            a href="/spring_collection" Shop
+          li#shop_name
+            a href="/index" Her Gorgeous Past
+          li
+            a href="/gallery" Gallery
+          li
+            a href="/member" Member  
+        / a#shop_name_mobil href="/index" Her Gorgeous Past
+        / figure#menu_icon
+        /   img src="/img/menu_icon.png" alt="Menu icon" id="rose_menu_icon"
+      main
+        article#index-main-article
+          h1 
+            | Her
+            br
+            | Favourite
+            br
+            | Yesterday
+          p#wordbox_2 Lorem ipsum dolor sit amet.
+          p#wordbox_3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. A ut praesentium ea et in officia non? Exercitationem ipsam sint veniam.
+          div#div_button
+            ul
+              li
+                a href="#" Find her
+              li
+                a href="#" Read her
+        img src="/img/img10.jpg" alt="Img main index" id="img_main"
+      aside
+        h2#aside_title Her today's stories
+        article.newspaper
+          h3.news_topic Her Magazine
+          a.news_title href="https://www.vogue.com/slideshow/the-best-street-style-photos-from-the-fall-2023-shows-in-shanghai" The Best Street Style Photos From the Fall 2023 Shows in Shanghai
+          p.writer by SU SHAN LEONG
+        article.newspaper
+          h3.news_topic Her Beauty
+          a.news_title href="https://www.vogue.com/article/best-skincare-women-over-50" The Best Skin Care for Women Over 50, According to Industry Pros
+          p.writer by LAUREN VALENTI
+        article.newspaper
+          h3.news_topic Her Projects
+          a.news_title href="https://www.vogue.com/article/for-these-women-of-color-historical-dressing-is-a-modern-art-form" For These Women of Color, Historical Dressing Is a Modern Art Form
+          p.writer by SARAH SPELLINGS
+        article.newspaper
+          h3.news_topic Her Living
+          a.news_title href="https://www.vogue.com/article/why-everyone-should-try-forest-bathing" Why everyone should try forest bathing
+          p.writer by DANA COVIT
+        article.newspaper
+          h3.news_topic Her Voice
+          a.news_title href="https://www.vogue.com/article/how-selling-plus-size-clothes-on-instagram-gave-me-the-fat-community-i-craved" How Selling Plus-Size Clothes on Instagram Gave Me the Fat Community I Craved
+          p.writer by EMMA SPECTER
+      section#section_1
+        h2#section1_titel n e w
+          br
+          | a r r i v a l s
+        .new_arrivals_content
+          - (11..14).each do |i|
+            figure.new_arrivals
+              img src="/img/img#{i}.jpg" alt="Img#{i} NewArrivals" class="img_newarrivals"
+              p.price_newarrivals $#{i * 10}
+              p.description_newarrivals Lorem ipsum dolor sit amet.
+        button#shop_all Shop all
+      section#section_2
+        h2#section2_titel Upcoming workshops
+        figure#section2_container
+          - (1..3).each do |i|
+            img src="/img/party#{i}.jpg" alt="Img#{i} Workshop" class="workshop_img"
+      footer
+        section#social_media
+          h3 Her Gorgeous Past
+          ul.socialmedia_logo
+            li
+              img src="/img/facebook.png" alt="Logo facebook"
+            li
+              img src="/img/instagram.png" alt="Logo instagram"
+            li
+              img src="/img/twitter.png" alt="Logo twitter"
+            li
+              img src="/img/pinterest.png" alt="Logo pinterest"
+        section#contact
+          h4 Contact
+          p +123456789
+          p info@hergorgeouspast.com
+          p 506 S.Washington Avenue
+          p Royal Oak.Michigan 48067
+        section#quick_links
+          h4 Quick Links
+          a href="/index" Home
+          a href="/gallery" Products
+          a href="/userlogin/register" Register
+          a href="/userlogin/login" Log in
+        section#subcribe
+          h2 Be Her Friends
+          h4 Leave your name to stay with her
+          div#subcribe_box
+            img#email_icon src="/img/gmail.png" alt="Email Icon"
+            p Enter your email
+    script src="/js/script.js"
