@@ -2,6 +2,7 @@ require 'slim'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
+require 'bcrypt'
 
 enable :sessions
 
@@ -29,8 +30,25 @@ get('/member') do
     slim(:member)
 end
 
-get('/showlogin') do
-    slim(:login)
+get('/profile') do
+    slim(:profile)
+end
+
+post('/newmember') do
+    username = params[:username]
+    password = params[:password]
+    password_confirm = params[:password_confirm]
+
+    if (password == password_confirm)
+      #lägg till användare
+      password_digest = BCrypt::Password.create(password)
+      db = SQLite3::Database.new('db/test.db')
+      db.execute("INSERT INTO users (username, pwdigest) VALUES (?,?)",username,password_digest)
+      redirect('/profile')
+    else
+      #felhantering
+      "Lösenorden matchade inte"
+    end
 end
 
 post('/login') do
@@ -42,26 +60,9 @@ post('/login') do
     pwdigest = result["pwdigest"]
     id = result["id"]
     if BCrypt::Password.new(pwdigest) == password
-        session[:id] = id
-        redirect('/main')
+      session[:id] = id
+      redirect('/profile')
     else
-        redirect('/')
-        "Wrong password"
-    end
-end
-
-post('/userslogin/new') do
-    username = params[:username]
-    password = params[:password]
-    password_confirm = params[:password_confirm]
-
-    if (password == password_confirm)
-        password_digest = BCRypt::Password.create(password)
-        db = SQLite3::Database.new('db/test.db')
-        db.execute("INSERT INTO users (username, pwdigest) VALUES (?,?)", username,password_digest)
-        redirect('/')
-    else
-        redirect('/')
-        "Lösenorden matchade inte"
+      "FELLL"
     end
 end
