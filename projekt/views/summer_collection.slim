@@ -1,0 +1,40 @@
+doctype html
+html lang="en"
+  head
+    meta charset="UTF-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title Her Gorgeous Past
+    link rel="stylesheet" href="/css/stylep.css"
+  body
+    div#grid_wrapper_collection
+      header
+        p Every past has its beauty
+      
+      nav
+        ul#nav_links
+          li
+            a href="/index" Home
+          li
+            a href="/spring_collection" Shop
+          li#shop_name
+            a href="/index" Her Gorgeous Past
+          li
+            a href="/gallery" Gallery
+          li
+            a href="/member" Member
+
+      aside#aside_collection_page
+        h2 Her seasons
+        div.season
+          - ["spring", "summer", "autumn", "winter"].each do |season|
+            figure.season_card
+              img.img_season src="img/#{season}.jpg" alt="Img #{season.capitalize}Card"
+              a.button_season href="/#{season}_collection" = season.capitalize
+    
+      main.main_collection#main_collection_summer
+        img#img_main_summer_1 src="img/mainsummer1.jpg" alt="Img1 SummerMain"
+        article#text_main_spring
+          h2 Her Last Summer 
+          p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro officiis blanditiis nostrum magni libero delectus, dicta tempore maxime, quibusdam velit officia sit! Magnam voluptatibus modi quidem esse eos laboriosam
+        img#img_main_summer_2 src="img/mainsummer2.jpg" alt="Img2 SummerMain"

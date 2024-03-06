@@ -14,7 +14,11 @@ get('/index') do
 end
 
 get('/spring_collection') do
-    slim(:shop)
+    slim(:spring_collection)
+end
+
+get('/summer_collection') do
+    slim(:summer_collection)
 end
 
 get('/gallery') do

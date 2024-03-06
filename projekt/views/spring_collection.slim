@@ -23,9 +23,6 @@ html lang="en"
             a href="/gallery" Gallery
           li
             a href="/member" Member  
-        / a#shop_name_mobil href="index.html" Her Gorgeous Past
-        / figure#menu_icon
-        /   img#rose_menu_icon src="img/menu_icon.png" alt="Menu icon"
       
       aside#aside_collection_page
         h2 Her seasons
@@ -33,7 +30,7 @@ html lang="en"
           - ["spring", "summer", "autumn", "winter"].each do |season|
             figure.season_card
               img.img_season src="img/#{season}.jpg" alt="Img #{season.capitalize}Card"
-              a.button_season href="#{season}_collection.html" = season.capitalize
+              a.button_season href="/#{season}_collection" = season.capitalize
 
       main.main_collection#main_collection_spring
         img#img_main_spring_1 src="img/spring_main.jpg" alt="Img1 SpringMain"
