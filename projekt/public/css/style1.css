@@ -13,14 +13,11 @@
 #grid_wrapper {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 70px 40px 450px 460px 300px 340px;
+    grid-template-rows: 70px 40px 450px;
     grid-template-areas: 
     "na na"
     "he he"
-    "ma as"
-    "s1 as"
-    "s2 as"
-    "fo fo";
+    "ma ma";
 }
         /*--------------NAV MOBIL--------------*/
 nav {
@@ -39,7 +36,7 @@ nav {
     height: 0%;
     position: absolute;
     list-style: none;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border: 0px solid black;
 }
 
@@ -122,6 +119,7 @@ main{
     display: flex;
     justify-content: center;     
     border-bottom: 1px solid black;
+    border-top: 1px solid black;
     padding-top: 15px;
     margin: 0 20px 0px 20px;
 }
@@ -777,9 +775,31 @@ footer{
         }
     /*--------------END GALLERY MOBIL--------------*/
 
+    #grid_wrapper_profile{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 9vh 5vh 100vh 10vh;
+        grid-template-areas: 
+        "na na"
+        "he he"
+        "maf maf"
+        "fo fo";
+    }
 
+    .main_profile{
+        grid-area: maf;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 0;
+    }
         
 @media screen and (min-width: 700px) {
+
+    #grid_wrapper_profile{
+        grid-template-rows: 70px 40px 600px 340px;
+    }
 
     #grid_wrapper_collection{
         grid-template-columns: 1fr 5fr;
@@ -926,5 +946,8 @@ footer{
     .gallery h2{
         font-size: 2rem;
     }
+
+
+
 /*--------------END GALLERY DESKTOP--------------*/
 }

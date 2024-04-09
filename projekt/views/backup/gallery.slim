@@ -5,7 +5,7 @@ html lang="en"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title Gallery
-    link rel="stylesheet" href="css/stylep.css"
+    link rel="stylesheet" href="css/style1.css"
   body
     div#grid_wrapper_gallery
       header
@@ -21,11 +21,13 @@ html lang="en"
             a href="/index" Her Gorgeous Past
           li
             a href="/gallery" Gallery
-          li
-            a href="/member" Member  
-        / a#shop_name_mobil href="index.html" Her Gorgeous Past
-        / figure#menu_icon
-        /   img#rose_menu_icon src="img/menu_icon.png" alt="Menu icon"
+          - if session[:id] == nil 
+            li
+              a href="/member" Hej #{session[:username]}  
+          - else  
+            li
+              a href="/profile" Hej #{session[:username]}
+
 
       main.main_gallery
         article.gallery
@@ -99,7 +101,10 @@ html lang="en"
           a href="/index" Home
           a href="/gallery" Products
           a href="/userlogin/register" Register
-          a href="/userlogin/login" Log in
+          - if session[:id] == nil 
+            a href="/member" Log in
+          - else 
+            a href="/clear_session" Log out
 
         section#subcribe
           h2 Be Her Friends

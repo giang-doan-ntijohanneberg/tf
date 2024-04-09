@@ -1,0 +1,31 @@
+h1 Filter Clothes 
+- if flash[:message]
+    .message = flash[:message]
+
+form action="/filter" method="POST"
+  label for="season" Season:
+  select name="season"
+    option value="" All
+    - seasons.each do |season|
+      option value="#{season['season_id']}"#{season['season_name']}
+
+  label for="clothtypes" Type:
+  select name="clothtypes"
+    option value="" All
+    - clothtypes.each do |clothtype|
+      option value="#{clothtype['type_id']}"#{clothtype['type_name']}
+
+  label for="pattern" Pattern: 
+  select name="pattern"
+    option value="" All 
+    - patterns.each do |pattern|
+      option value="#{pattern['pattern_id']}"#{pattern['pattern_name']}
+
+  label for="size" Size:
+  input type="text" name="size" placeholder="Size"
+
+  label for="color_picker" Choose a color:
+  input type="color" id="color_picker" name="color_picker"
+
+
+  input type="submit" value="Filter"

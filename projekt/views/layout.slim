@@ -5,4 +5,35 @@ html lang="en"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title Her Gorgeous Past
   body 
-    ==yield 
+    <!DOCTYPE html>
+html lang="en"
+    head
+        meta charset="UTF-8"/
+        meta name="viewport" content="width=device-width, initial-scale=1.0"/
+        title Document
+        link rel="stylesheet" href="/css/style2.css"/
+    body
+        nav
+          ul#nav_links              
+            - if session[:id] == nil 
+              li
+                a href="/" Hej #{session[:username]}  
+            - else  
+              li
+                a href="/profile" Hej #{session[:username]}
+            li
+              a href="/add" Add clothes
+            li
+              a href="/filter" Find clothes
+            - if session[:id] == nil 
+              li
+                a href="/member" Log in
+              li
+            - else 
+                a href="/logout" Log out
+        - if flash[:notice]
+            .message = flash[:notice]
+        == yield 
+        script src="js/main.js"
+
+
