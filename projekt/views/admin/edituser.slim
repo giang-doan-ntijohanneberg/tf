@@ -1,4 +1,7 @@
 h1 User info 
+- if flash[:message]
+    .message = flash[:message]
+
 ol
   - users.each do |user|
     li

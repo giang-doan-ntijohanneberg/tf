@@ -73,17 +73,16 @@ post('/addclothes') do
     else
         flash[:message] = "Please upload an image"
         redirect('/add')
-        return
     end
 
     if season_id == 0 || pattern_id == 0 || cloth_name.nil? || cloth_name.empty? || type_id == 0 || color_id.nil? || color_id.empty? || size.nil? || size.empty? || notes.nil? || notes.empty? || image.nil?
         flash[:message] = "Please fill out all the fields!"
         redirect('/add')
-        return
     end
 
     db = connect_to_db('db/projekt.db')
     db.execute("INSERT INTO wardrobe (user_id, season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", user_id, season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id)
+
     redirect('/profile')
 end
 
@@ -103,7 +102,6 @@ get('/profile/:cloth_id/edit') do
     seasons = db.execute("SELECT * FROM season")
     clothtypes = db.execute("SELECT * FROM clothtypes")
     patterns = db.execute("SELECT * FROM pattern")
-    p "Edit this piece #{chosen_clothes}"
     slim(:"/wardrobe/edit", locals:{chosen_clothes:chosen_clothes, patterns:patterns, seasons:seasons, clothtypes:clothtypes})
 end
 
@@ -117,10 +115,17 @@ post('/profile/:cloth_id/update') do
     color_id = params[:color_picker]
     size = params[:size]
     notes = params[:notes]
-    image = params[:image][:tempfile].read
-    db = connect_to_db('db/projekt.db')
-    db.execute("UPDATE wardrobe SET season_id=?, cloth_name=?, type_id=?, size=?, notes=?, image=?, pattern_id=?, color_id=? WHERE user_id=? AND cloth_id=?", season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id, user_id, cloth_id)
-    redirect('/profile')
+
+    if params[:image] && params[:image][:tempfile]
+        image = params[:image][:tempfile].read
+        db = connect_to_db('db/projekt.db')
+        db.execute("UPDATE wardrobe SET season_id=?, cloth_name=?, type_id=?, size=?, notes=?, image=?, pattern_id=?, color_id=? WHERE user_id=? AND cloth_id=?", season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id, user_id, cloth_id)
+        redirect('/profile')
+    else
+        db = connect_to_db('db/projekt.db')
+        db.execute("UPDATE wardrobe SET season_id=?, cloth_name=?, type_id=?, size=?, notes=?, pattern_id=?, color_id=? WHERE user_id=? AND cloth_id=?", season_id, cloth_name, type_id, size, notes, pattern_id, color_id, user_id, cloth_id)
+        redirect('/profile')
+    end
 end
 
 get('/filter') do
@@ -205,22 +210,28 @@ post('/newmember') do
     db = connect_to_db('db/projekt.db')
     result = db.execute("SELECT * FROM users WHERE username = ?", username)
 
-    if (password == password_confirm)
-        if result.empty?
-            password_digest = BCrypt::Password.create(password)
-            db.execute("INSERT INTO users (username, pwdigest) VALUES (?,?)",username,password_digest)
-            tagname = db.execute("SELECT * FROM users WHERE username = ?", username).first
-            session[:username] = tagname["username"]
-            session[:id] = tagname["id"]
-            redirect('/profile')
+    if username.empty? || username.nil? || password.empty? || password.nil? || password_confirm.empty? || password_confirm.nil?
+        flash[:message] = "You must fill out all the fields"
+        redirect('/member')
+    else
+        if (password == password_confirm)
+            if result.empty?
+                password_digest = BCrypt::Password.create(password)
+                db.execute("INSERT INTO users (username, pwdigest) VALUES (?,?)",username,password_digest)
+                tagname = db.execute("SELECT * FROM users WHERE username = ?", username).first
+                session[:username] = tagname["username"]
+                session[:id] = tagname["id"]
+                redirect('/profile')
+            else
+                flash[:message] = "Username already exists"
+                redirect('/member')
+            end
         else
-            flash[:message] = "Username already exists"
+            flash[:message] = "Passwords do not match"
             redirect('/member')
         end
-    else
-        flash[:message] = "Passwords do not match"
-        redirect('/member')
     end
+
 end
 
 post('/login') do
@@ -263,7 +274,7 @@ get('/admin') do
     items = db.execute("SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id")
 
     if items.empty?
-        return slim(:"admin/admin", locals:{patterns:patterns, seasons:seasons, clothtypes:clothtypes, items:items, message: "Nothing is added."})
+        slim(:"admin/admin", locals:{patterns:patterns, seasons:seasons, clothtypes:clothtypes, items:items, message: "Nothing is added"})
     else
         slim(:"admin/admin", locals:{patterns:patterns, seasons:seasons, clothtypes:clothtypes, items:items})
     end
@@ -287,11 +298,12 @@ get('/admin/:id/show') do
 
     @username = db.execute("SELECT username FROM users WHERE id = ?", user_id).first['username']
 
-
     items = db.execute("SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id WHERE wardrobe.user_id = ?", user_id)
 
     if items.empty?
-        return slim(:"admin/edituser", locals:{patterns:patterns, seasons:seasons, clothtypes:clothtypes, items:items, users:users, message: "There is nothing to show."})
+        flash[:message] = "This user has not added anything"
+        redirect('/admin/edit-user')
+
     else
         slim(:"admin/show", locals:{patterns:patterns, seasons:seasons, clothtypes:clothtypes, users:users, items:items})
     end
