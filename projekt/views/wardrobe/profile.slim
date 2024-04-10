@@ -16,7 +16,7 @@ main.main_profile
             | Color: 
             div style="width: 10px; height: 10px; background-color: #{item['color_id']}; margin-top: 20px;"
             a href="/profile/#{item['cloth_id']}/edit" Update
-            form action="profile/#{item['cloth_id']}/delete" method="POST"
+            form action="/profile/#{item['cloth_id']}/delete" method="POST"
               input type="submit" value="Delete"
 
     

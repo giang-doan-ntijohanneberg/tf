@@ -1,0 +1,41 @@
+h1 Data info
+ol
+- seasons.each do |season|
+  li 
+    | Season id: #{season['season_id']}
+    | Season: #{season['season_name']}
+    form action="/admin/#{season['season_id']}/deletedata" method="POST"
+      input type="hidden" name="season_id" value="#{season['season_id']}"
+      input type="submit" value="Delete"
+form action = "/admin/edit-data" method = "POST"
+    label for="seasonname" Add season:                
+    input type="text" name="season_name" placeholder="Season"
+    input type="submit" value="Submit!"  
+
+
+ol
+- clothtypes.each do |clothtype|
+  li 
+    | Cloth id: #{clothtype['type_id']}
+    | Cloth: #{clothtype['type_name']}
+    form action="/admin/#{clothtype['type_id']}/deletedata" method="POST"
+      input type="hidden" name="type_id" value="#{clothtype['type_id']}"
+      input type="submit" value="Delete"
+form action = "/admin/edit-data" method = "POST"
+    label for="clothname" Add clothtypes:                
+    input type="text" name="type_name" placeholder="Type"
+    input type="submit" value="Submit!"  
+
+
+ol
+- patterns.each do |pattern|
+  li 
+    | Pattern id: #{pattern['pattern_id']}
+    | Pattern: #{pattern['pattern_name']}
+    form action="/admin/#{pattern['pattern_id']}/deletedata" method="POST"
+      input type="hidden" name="pattern_id" value="#{pattern['pattern_id']}"
+      input type="submit" value="Delete"
+form action = "/admin/edit-data" method = "POST"
+    label for="patternname" Add pattern:                
+    input type="text" name="pattern_name" placeholder="Pattern"
+    input type="submit" value="Submit!"  

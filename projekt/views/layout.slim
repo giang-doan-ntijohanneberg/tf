@@ -18,21 +18,36 @@ html lang="en"
             - if session[:id] == nil 
               li
                 a href="/" Hej #{session[:username]}  
+            - elsif session[:username] == "admin"
+              li 
+                a href="/admin" Welcome Admin!
             - else  
               li
                 a href="/profile" Hej #{session[:username]}
-            li
-              a href="/add" Add clothes
-            li
-              a href="/filter" Find clothes
+
+            - if session[:username] == "admin"
+              li 
+                a href="/admin/edit-user" User Info
+            - else 
+              li
+                a href="/add" Add clothes
+
+            - if session[:username] == "admin"
+              li
+                a href="/admin/edit-data" Data Info
+            - else
+              li
+                a href="/filter" Find clothes
+
             - if session[:id] == nil 
               li
                 a href="/member" Log in
               li
             - else 
                 a href="/logout" Log out
+
         - if flash[:notice]
-            .message = flash[:notice]
+            .notice = flash[:notice]
         == yield 
         script src="js/main.js"
 

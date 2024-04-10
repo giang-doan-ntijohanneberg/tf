@@ -1,0 +1,10 @@
+h1 User info 
+ol
+  - users.each do |user|
+    li
+      | User id: #{user['id']}
+      | User name: #{user['username']}
+      | Password: #{user['pwdigest']}
+      form action="/admin/#{user['id']}/delete" method="POST"
+        input type="submit" value="Delete"
+        a href="/admin/#{user['id']}/show" Show

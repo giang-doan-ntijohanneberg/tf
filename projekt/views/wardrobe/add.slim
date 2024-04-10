@@ -1,3 +1,6 @@
+- if flash[:message]
+    .message = flash[:message]
+
 form action = "/addclothes" method = "POST" enctype="multipart/form-data"
     label for="season" Choose season: 
     select name ="season" 
