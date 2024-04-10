@@ -5,22 +5,14 @@ require 'sinatra/reloader'
 require 'sqlite3'
 require 'bcrypt'
 
-require_relative './model.rb'
+require_relative './my_module.rb'
 
 enable :sessions
 
-before do
-    if request.path_info != '/' &&
-        session[:id] == nil &&
-        request.path_info != '/member' &&
-        request.path_info != '/add' &&
-        request.path_info != '/newmember' &&
-        request.path_info != '/login' &&
-        request.path_info != '/filter'
-        redirect ('/')
-    end
-end
 
+before do
+    require_login()
+end
 
 get('/') do
     slim(:index)
@@ -28,12 +20,10 @@ end
 
 get('/profile') do
     user_id = session[:id].to_i
-    db = connect_to_db('db/projekt.db')
-    seasons = db.execute("SELECT * FROM season")
-    clothtypes = db.execute("SELECT * FROM clothtypes")
-    patterns = db.execute("SELECT * FROM pattern")
 
-    items = db.execute("SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id WHERE wardrobe.user_id = ?", user_id)
+    seasons, clothtypes, patterns = fetch_table()
+
+    items = fetch_items(user_id)
 
     if items.empty?
         return slim(:"wardrobe/profile", locals:{patterns:patterns, seasons:seasons, clothtypes:clothtypes, items:items, message: "There is nothing in your wardrobe."})
@@ -44,10 +34,7 @@ end
 
 get('/add') do
     user_id = session[:id].to_i
-    db = connect_to_db('db/projekt.db')
-    seasons = db.execute("SELECT * FROM season")
-    clothtypes = db.execute("SELECT * FROM clothtypes")
-    patterns = db.execute("SELECT * FROM pattern")
+    seasons, clothtypes, patterns = fetch_table()
 
     if user_id == 0
         flash[:message] = "Please log in to add clothes"
@@ -80,8 +67,7 @@ post('/addclothes') do
         redirect('/add')
     end
 
-    db = connect_to_db('db/projekt.db')
-    db.execute("INSERT INTO wardrobe (user_id, season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", user_id, season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id)
+    connect_execute("INSERT INTO wardrobe (user_id, season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", user_id, season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id)
 
     redirect('/profile')
 end
@@ -89,19 +75,17 @@ end
 post('/profile/:cloth_id/delete') do
     user_id = session[:id].to_i
     cloth_id = params[:cloth_id].to_i
-    db = connect_to_db('db/projekt.db')
-    db.execute("DELETE FROM wardrobe WHERE user_id=? AND cloth_id=?", user_id, cloth_id)
+    connect_execute("DELETE FROM wardrobe WHERE user_id=? AND cloth_id=?", user_id, cloth_id)
     redirect('/profile')
 end
 
 get('/profile/:cloth_id/edit') do
     user_id = session[:id].to_i
     cloth_id = params[:cloth_id].to_i
-    db = connect_to_db('db/projekt.db')
-    chosen_clothes = db.execute("SELECT * FROM wardrobe WHERE user_id=? AND cloth_id=?", user_id, cloth_id).first
-    seasons = db.execute("SELECT * FROM season")
-    clothtypes = db.execute("SELECT * FROM clothtypes")
-    patterns = db.execute("SELECT * FROM pattern")
+    chosen_clothes = connect_execute("SELECT * FROM wardrobe WHERE user_id=? AND cloth_id=?", user_id, cloth_id).first
+
+    seasons, clothtypes, patterns = fetch_table()
+
     slim(:"/wardrobe/edit", locals:{chosen_clothes:chosen_clothes, patterns:patterns, seasons:seasons, clothtypes:clothtypes})
 end
 
@@ -118,22 +102,18 @@ post('/profile/:cloth_id/update') do
 
     if params[:image] && params[:image][:tempfile]
         image = params[:image][:tempfile].read
-        db = connect_to_db('db/projekt.db')
-        db.execute("UPDATE wardrobe SET season_id=?, cloth_name=?, type_id=?, size=?, notes=?, image=?, pattern_id=?, color_id=? WHERE user_id=? AND cloth_id=?", season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id, user_id, cloth_id)
+        connect_execute("UPDATE wardrobe SET season_id=?, cloth_name=?, type_id=?, size=?, notes=?, image=?, pattern_id=?, color_id=? WHERE user_id=? AND cloth_id=?", season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id, user_id, cloth_id)
         redirect('/profile')
     else
-        db = connect_to_db('db/projekt.db')
-        db.execute("UPDATE wardrobe SET season_id=?, cloth_name=?, type_id=?, size=?, notes=?, pattern_id=?, color_id=? WHERE user_id=? AND cloth_id=?", season_id, cloth_name, type_id, size, notes, pattern_id, color_id, user_id, cloth_id)
+        connect_execute("UPDATE wardrobe SET season_id=?, cloth_name=?, type_id=?, size=?, notes=?, pattern_id=?, color_id=? WHERE user_id=? AND cloth_id=?", season_id, cloth_name, type_id, size, notes, pattern_id, color_id, user_id, cloth_id)
         redirect('/profile')
     end
 end
 
 get('/filter') do
     user_id = session[:id].to_i
-    db = connect_to_db('db/projekt.db')
-    seasons = db.execute("SELECT * FROM season")
-    clothtypes = db.execute("SELECT * FROM clothtypes")
-    patterns = db.execute("SELECT * FROM pattern")
+
+    seasons, clothtypes, patterns = fetch_table()
 
     if user_id == 0
         flash[:message] = "Please log in to find clothes"
@@ -150,6 +130,7 @@ post('/filter') do
     type_id = params[:clothtypes].to_i
     color_id = params[:color_picker]
     size = params[:size]
+
     db = connect_to_db('db/projekt.db')
 
     query = "SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id WHERE wardrobe.user_id = ?"
@@ -207,18 +188,18 @@ post('/newmember') do
     password = params[:password]
     password_confirm = params[:password_confirm]
 
-    db = connect_to_db('db/projekt.db')
-    result = db.execute("SELECT * FROM users WHERE username = ?", username)
+    result = connect_execute("SELECT * FROM users WHERE username = ?", username)
 
-    if username.empty? || username.nil? || password.empty? || password.nil? || password_confirm.empty? || password_confirm.nil?
+    if username.empty? || password.empty? || password_confirm.empty?
         flash[:message] = "You must fill out all the fields"
         redirect('/member')
     else
         if (password == password_confirm)
             if result.empty?
                 password_digest = BCrypt::Password.create(password)
-                db.execute("INSERT INTO users (username, pwdigest) VALUES (?,?)",username,password_digest)
-                tagname = db.execute("SELECT * FROM users WHERE username = ?", username).first
+                connect_execute("INSERT INTO users (username, pwdigest) VALUES (?,?)",username,password_digest)
+
+                tagname = connect_execute("SELECT * FROM users WHERE username = ?", username).first
                 session[:username] = tagname["username"]
                 session[:id] = tagname["id"]
                 redirect('/profile')
@@ -237,8 +218,9 @@ end
 post('/login') do
     username = params[:username]
     password = params[:password]
-    db = connect_to_db('db/projekt.db')
-    result = db.execute("SELECT * FROM users WHERE username = ?", username).first
+
+    result = connect_execute("SELECT * FROM users WHERE username = ?", username).first
+
     if result.nil?
         flash[:message] = "Username does not exist"
         redirect('/member')
@@ -266,12 +248,9 @@ get('/logout') do
 end
 
 get('/admin') do
-    db = connect_to_db('db/projekt.db')
-    seasons = db.execute("SELECT * FROM season")
-    clothtypes = db.execute("SELECT * FROM clothtypes")
-    patterns = db.execute("SELECT * FROM pattern")
+    seasons, clothtypes, patterns = fetch_table()
 
-    items = db.execute("SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id")
+    items = connect_execute("SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id")
 
     if items.empty?
         slim(:"admin/admin", locals:{patterns:patterns, seasons:seasons, clothtypes:clothtypes, items:items, message: "Nothing is added"})
@@ -282,23 +261,21 @@ get('/admin') do
 end
 
 get('/admin/edit-user') do
-    db = connect_to_db('db/projekt.db')
-    users = db.execute("SELECT * FROM users")
+    users = connect_execute("SELECT * FROM users")
     slim(:"admin/edituser", locals: {users: users})
 end
 
 
 get('/admin/:id/show') do
     user_id = params[:id].to_i
-    db = connect_to_db('db/projekt.db')
-    users = db.execute("SELECT * FROM users")
-    seasons = db.execute("SELECT * FROM season")
-    clothtypes = db.execute("SELECT * FROM clothtypes")
-    patterns = db.execute("SELECT * FROM pattern")
+    
+    users = connect_execute("SELECT * FROM users")
 
-    @username = db.execute("SELECT username FROM users WHERE id = ?", user_id).first['username']
+    seasons, clothtypes, patterns = fetch_table()
 
-    items = db.execute("SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id WHERE wardrobe.user_id = ?", user_id)
+    @username = connect_execute("SELECT username FROM users WHERE id = ?", user_id).first['username']
+
+    items = connect_execute("SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id WHERE wardrobe.user_id = ?", user_id)
 
     if items.empty?
         flash[:message] = "This user has not added anything"
@@ -312,16 +289,13 @@ end
 
 post('/admin/:id/delete') do
     user_id = params[:id].to_i
-    db = connect_to_db('db/projekt.db')
-    db.execute("DELETE FROM users WHERE id=?", user_id)
+    connect_execute("DELETE FROM users WHERE id=?", user_id)
     redirect('/admin/edit-user')
 end
 
 get('/admin/edit-data') do
-    db = connect_to_db('db/projekt.db')
-    seasons = db.execute("SELECT * FROM season")
-    clothtypes = db.execute("SELECT * FROM clothtypes")
-    patterns = db.execute("SELECT * FROM pattern")
+    seasons, clothtypes, patterns = fetch_table()
+
     slim(:"admin/editdata", locals: {seasons:seasons, clothtypes:clothtypes, patterns:patterns})
 end
 
@@ -329,17 +303,17 @@ post('/admin/edit-data') do
     season = params[:season_name]
     clothtype = params[:type_name]
     pattern = params[:pattern_name]
-    db = connect_to_db('db/projekt.db')
+
     if season && !season.empty?
-        db.execute("INSERT INTO season (season_name) VALUES(?)", season)
+        connect_execute("INSERT INTO season (season_name) VALUES(?)", season)
     end
 
     if clothtype && !clothtype.empty?
-    db.execute("INSERT INTO clothtypes (type_name) VALUES(?)", clothtype)
+        connect_execute("INSERT INTO clothtypes (type_name) VALUES(?)", clothtype)
     end
 
     if pattern && !pattern.empty?
-    db.execute("INSERT INTO pattern (pattern_name) VALUES(?)", pattern)
+        connect_execute("INSERT INTO pattern (pattern_name) VALUES(?)", pattern)
     end
 
     redirect('/admin/edit-data')
@@ -349,9 +323,8 @@ post('/admin/:id/deletedata') do
     season_id = params[:season_id].to_i
     clothtype_id = params[:type_id].to_i
     pattern_id = params[:pattern_id].to_i
-    db = connect_to_db('db/projekt.db')
-    db.execute("DELETE FROM season WHERE season_id=?", season_id)
-    db.execute("DELETE FROM clothtypes WHERE type_id=?", clothtype_id)
-    db.execute("DELETE FROM pattern WHERE pattern_id=?", pattern_id)
+    connect_execute("DELETE FROM season WHERE season_id=?", season_id)
+    connect_execute("DELETE FROM clothtypes WHERE type_id=?", clothtype_id)
+    connect_execute("DELETE FROM pattern WHERE pattern_id=?", pattern_id)
     redirect('/admin/edit-data')
 end
