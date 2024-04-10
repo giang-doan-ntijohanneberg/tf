@@ -188,57 +188,14 @@ post('/newmember') do
     password = params[:password]
     password_confirm = params[:password_confirm]
 
-    result = connect_execute("SELECT * FROM users WHERE username = ?", username)
-
-    if username.empty? || password.empty? || password_confirm.empty?
-        flash[:message] = "You must fill out all the fields"
-        redirect('/member')
-    else
-        if (password == password_confirm)
-            if result.empty?
-                password_digest = BCrypt::Password.create(password)
-                connect_execute("INSERT INTO users (username, pwdigest) VALUES (?,?)",username,password_digest)
-
-                tagname = connect_execute("SELECT * FROM users WHERE username = ?", username).first
-                session[:username] = tagname["username"]
-                session[:id] = tagname["id"]
-                redirect('/profile')
-            else
-                flash[:message] = "Username already exists"
-                redirect('/member')
-            end
-        else
-            flash[:message] = "Passwords do not match"
-            redirect('/member')
-        end
-    end
-
+    register(username, password, password_confirm)
 end
 
 post('/login') do
     username = params[:username]
     password = params[:password]
 
-    result = connect_execute("SELECT * FROM users WHERE username = ?", username).first
-
-    if result.nil?
-        flash[:message] = "Username does not exist"
-        redirect('/member')
-    else
-        pwdigest = result["pwdigest"]
-        if BCrypt::Password.new(pwdigest) == password
-            session[:id] = result["id"]
-            session[:username] = result["username"]
-            if username == "admin"
-                redirect('/admin')
-            else
-                redirect('/profile')
-            end
-        else
-            flash[:message] = "Wrong password!"
-            redirect('/member')
-        end
-    end
+    login(username, password)
 end
 
 get('/logout') do
@@ -268,7 +225,7 @@ end
 
 get('/admin/:id/show') do
     user_id = params[:id].to_i
-    
+
     users = connect_execute("SELECT * FROM users")
 
     seasons, clothtypes, patterns = fetch_table()
