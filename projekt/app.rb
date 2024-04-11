@@ -9,6 +9,7 @@ require_relative './my_module.rb'
 
 enable :sessions
 
+include MyModule
 
 before do
     require_login()
@@ -158,6 +159,7 @@ post('/filter') do
         conditions << "wardrobe.color_id =?"
         filter_params << color_id
     end
+
 
     if size && !size.empty?
         conditions << "wardrobe.size = ?"

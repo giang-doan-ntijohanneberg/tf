@@ -1,17 +1,19 @@
-h1 Welcome ADMIN 
-ol 
-  - if items.empty?
-    li = message 
-  - else
-    - items.each do |item|
-      li                       
-        | 
-        img src="data:image/jpeg;base64,#{Base64.strict_encode64(item['image'])}" alt="Cloth Image" width="100" height="100"
-        | Cloth Name: #{item['cloth_name']}, 
-        | Season: #{item['season_name']},
-        | Cloth Type: #{item['type_name']},
-        | Size: #{item['size']},
-        | Pattern: #{item['pattern_name']},
-        | Notes: #{item['notes']}
-        | Color: 
-        div style="width: 10px; height: 10px; background-color: #{item['color_id']}; margin-top: 20px;"
+main.main_profile
+  ol.flex-container
+    - if items.empty?
+      li = message
+    - else
+      - items.each do |item|
+        li.item-card
+          img.item-image src="data:image/jpeg;base64,#{Base64.strict_encode64(item['image'])}" alt="Cloth Image"
+          .item-details
+            p = "User: #{item['user_id']}"
+            p = "Cloth Name: #{item['cloth_name']}"
+            p = "Season: #{item['season_name']}"
+            p = "Cloth Type: #{item['type_name']}"
+            p = "Size: #{item['size']}"
+            p = "Pattern: #{item['pattern_name']}"
+            p = "Notes: #{item['notes']}"
+            p 
+            | Color:
+            div.color-box style="background-color: #{item['color_id']}"

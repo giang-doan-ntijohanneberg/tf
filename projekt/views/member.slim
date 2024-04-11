@@ -1,19 +1,17 @@
-- if flash[:message]
-    .message = flash[:message] 
-#memberpage    
-  #register    
-    form action="/newmember" method="POST"    
-      input type="text" name="username" placeholder="Enter username" 
-      input type="password" name="password" placeholder="Enter password"
-      input type="password" name="password_confirm" placeholder="Enter password again"
-      input type="submit" value="Register!"
+.container
+  - if flash[:message]
+    .message = flash[:message]
 
-  #login
-    form action="/login" method="POST"
-      input type="text" name="username" placeholder="Enter username"
-      input type="password" name="password" placeholder="Enter password"
-      input type="submit" value="Log in!"
+  #memberpage
+    #register
+      form action="/newmember" method="POST" class="login_form"
+        input type="text" name="username" placeholder="Enter username" 
+        input type="password" name="password" placeholder="Enter password"
+        input type="password" name="password_confirm" placeholder="Enter password again" 
+        input type="submit" value="Register!" id="submit_login"
 
-
-
-    
+    #login
+      form action="/login" method="POST" class="login_form"
+        input type="text" name="username" placeholder="Enter username" 
+        input type="password" name="password" placeholder="Enter password" 
+        input type="submit" value="Log in!" id="submit_login"
