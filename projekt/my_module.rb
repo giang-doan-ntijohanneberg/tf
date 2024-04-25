@@ -6,8 +6,8 @@ require 'bcrypt'
 
 module MyModule
 
-    def require_login()
-        if request.path_info != '/' && session[:id].nil? && !['/member', '/add', '/newmember', '/login', '/filter'].include?(request.path_info)
+    def require_login(session_id)
+        if request.path_info != '/' && session_id.nil? && !['/member', '/add', '/newmember', '/login', '/filter'].include?(request.path_info)
             redirect ('/')
         end
     end
@@ -41,6 +41,7 @@ module MyModule
         if username.empty? || password.empty? || password_confirm.empty?
             flash[:message] = "You must fill out all the fields"
             redirect('/member')
+            return [nil, nil]
         else
             if (password == password_confirm)
                 if result.empty?
@@ -54,35 +55,45 @@ module MyModule
                 else
                     flash[:message] = "Username already exists"
                     redirect('/member')
+                    [nil, nil]
                 end
             else
                 flash[:message] = "Passwords do not match"
                 redirect('/member')
+                [nil, nil]
             end
         end
     end
 
-    def login(username, password)
-        result = connect_execute("SELECT * FROM users WHERE username = ?", username).first
+    def login(username, password, attempts, last_time)
+        if attempts >=3 && Time.now - Time.parse(last_time.to_s) < 5
+            flash[:message] = "Too many login attempts. Please wait 5 seconds before trying again."
+            redirect('/member')
+            return[nil, nil, nil]
+        end
 
+        result = connect_execute("SELECT * FROM users WHERE username = ?", username).first
         if result.nil?
             flash[:message] = "Username does not exist"
             redirect('/member')
+            update_attempts(attempts)
+            return [nil, nil, nil]
         else
             pwdigest = result["pwdigest"]
             if BCrypt::Password.new(pwdigest) == password
-                session[:id] = result["id"]
-                session[:username] = result["username"]
-                if username == "admin"
-                    redirect('/admin')
-                else
-                    redirect('/profile')
-                end
+                [result["username"], result["id"], username == "admin" ? '/admin' : '/profile']
             else
                 flash[:message] = "Wrong password!"
                 redirect('/member')
+                update_attempts(attempts)
+                return [nil, nil, nil]
             end
         end
     end
 
+    def update_attempts(attempts, last_time)
+        attempts += 1
+        last_time = Time.now
+        [attempts, last_time]
+    end
 end

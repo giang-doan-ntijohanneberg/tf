@@ -12,7 +12,8 @@ enable :sessions
 include MyModule
 
 before do
-    require_login()
+    session_id = session[:id]
+    require_login(session_id)
 end
 
 get('/') do
@@ -178,7 +179,6 @@ post('/filter') do
     else
         slim(:"wardrobe/filter_result", locals:{items:items})
     end
-
 end
 
 get('/member') do
@@ -190,14 +190,26 @@ post('/newmember') do
     password = params[:password]
     password_confirm = params[:password_confirm]
 
-    register(username, password, password_confirm)
+    session[:username], session[:id] = register(username, password, password_confirm)
+    redirect('/profile') if session[:username] && session[:id]
 end
 
 post('/login') do
     username = params[:username]
     password = params[:password]
+    attempts = session[:attempts] || 0
+    last_time = session[:last_time] || Time.now - 10
 
-    login(username, password)
+    session[:username], session[:id], redirect_path = login(username, password, attempts, last_time)
+    session[:attempts], session[:last_time] = update_attempts(attempts, last_time)
+    redirect(redirect_path) if session[:username] && session[:id] && redirect_path
+end
+
+helpers do
+    def reset_login_attempts
+        session.delete(:attempts)
+        session.delete(:last_time)
+    end
 end
 
 get('/logout') do

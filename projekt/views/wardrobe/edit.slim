@@ -1,33 +1,34 @@
-form action="/profile/#{chosen_clothes['cloth_id']}/update" method="POST" enctype="multipart/form-data"
-    img src="data:image/jpeg;base64,#{Base64.strict_encode64(chosen_clothes['image'])}" alt="Cloth Image" width="100" height="100"
+#editpage
+    form action="/profile/#{chosen_clothes['cloth_id']}/update" method="POST" enctype="multipart/form-data" id="edit_form"
+        img src="data:image/jpeg;base64,#{Base64.strict_encode64(chosen_clothes['image'])}" alt="Cloth Image" width="100" height="100"
 
-    input type="text" name="cloth_name" value="#{chosen_clothes['cloth_name']}"  
+        input type="text" name="cloth_name" value="#{chosen_clothes['cloth_name']}"  
 
-    select name ="season" 
-        - seasons.each do |season|
-            - if season['season_id'] == chosen_clothes['season_id']
-                option value="#{season['season_id']}" selected="selected" #{season['season_name']}
-            - else
-                option value="#{season['season_id']}" #{season['season_name']}
+        select name ="season" 
+            - seasons.each do |season|
+                - if season['season_id'] == chosen_clothes['season_id']
+                    option value="#{season['season_id']}" selected="selected" #{season['season_name']}
+                - else
+                    option value="#{season['season_id']}" #{season['season_name']}
 
-    select name = "clothtypes"
-        - clothtypes.each do |clothtype|
-            - if clothtype['type_id'] == chosen_clothes['type_id']
-                option value="#{clothtype['type_id']}" selected="selected" #{clothtype['type_name']}
-            - else
-                option value="#{clothtype['type_id']}" #{clothtype['type_name']}
+        select name = "clothtypes"
+            - clothtypes.each do |clothtype|
+                - if clothtype['type_id'] == chosen_clothes['type_id']
+                    option value="#{clothtype['type_id']}" selected="selected" #{clothtype['type_name']}
+                - else
+                    option value="#{clothtype['type_id']}" #{clothtype['type_name']}
 
-    select name="pattern"
-        - patterns.each do |pattern|
-            - if pattern['pattern_id'] == chosen_clothes['pattern_id']
-                option value="#{pattern['pattern_id']}" selected="selected" #{pattern['pattern_name']}
-            - else
-                option value="#{pattern['pattern_id']}" #{pattern['pattern_name']}
+        select name="pattern"
+            - patterns.each do |pattern|
+                - if pattern['pattern_id'] == chosen_clothes['pattern_id']
+                    option value="#{pattern['pattern_id']}" selected="selected" #{pattern['pattern_name']}
+                - else
+                    option value="#{pattern['pattern_id']}" #{pattern['pattern_name']}
 
-    input type="text" name="size" value="#{chosen_clothes['size']}"
-    input type="text" name="notes" value="#{chosen_clothes['notes']}"
-    label for="color_picker" Choose a color:
-    input type="color" id="color_picker" name="color_picker" value="#{chosen_clothes['color_id']}"
-    input type="file"name="image" value="#{chosen_clothes['image']}"
+        input type="text" name="size" value="#{chosen_clothes['size']}"
+        input type="text" name="notes" value="#{chosen_clothes['notes']}"
+        label for="color_picker" Choose a color:
+        input type="color" id="color_picker" name="color_picker" value="#{chosen_clothes['color_id']}"
+        input type="file"name="image" value="#{chosen_clothes['image']}"
 
-    input type="submit" value="Edit!"  
+        input type="submit" value="Edit!"  

@@ -149,7 +149,7 @@ main{
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"],
+input[class="input_login"],
 input[type="password"],
 input[id="submit_login"]{    
     width: 100%;
@@ -258,3 +258,63 @@ input[id="submit"]:hover{
     background-color: rgb(113, 25, 25);
 }
   
+#addpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 90vw;
+    min-height: 70vh;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+#add_form{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#editpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 90vw;
+    min-height: 70vh;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+#edit_form{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#filterpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 90vw;
+    min-height: 70vh;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+#filter_form{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
