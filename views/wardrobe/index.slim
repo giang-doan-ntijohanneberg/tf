@@ -1,0 +1,30 @@
+main.main_profile
+  ol.flex-container
+    - if items.empty?
+      li = message
+    - else
+      - items.each do |item|
+        li.item-card
+          img.item-image src="data:image/jpeg;base64,#{Base64.strict_encode64(item['image'])}" alt="Cloth Image"
+          .item-details
+            p = "Cloth Name: #{item['cloth_name']}"
+            - seasonat.each do |ss|
+              -ss.each do |season|
+                - if item['cloth_id'] == season['cloth_id']
+                  p = "Season: #{season['season_name']}"
+            p = "Cloth Type: #{item['type_name']}"
+            p = "Size: #{item['size']}"
+            p = "Pattern: #{item['pattern_name']}"
+            p = "Notes: #{item['notes']}"
+            p 
+            | Color:
+            div.color-box style="background-color: #{item['color_id']}"
+            a.update-button href="/profile/#{item['cloth_id']}/edit" Update
+            form.delete-form action="/profile/#{item['cloth_id']}/delete" method="POST"
+              input.delete-button type="submit" value="Delete"
+
+
+
+    
+
+   

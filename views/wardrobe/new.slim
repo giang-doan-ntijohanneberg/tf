@@ -1,0 +1,35 @@
+#addpage
+    - if flash[:message]
+        .message = flash[:message]
+
+    form action = "/profile/new" method = "POST" enctype="multipart/form-data" id="add_form"
+        label for="clothname" Name of clothes:                
+        input type="text" name="cloth_name" placeholder="Name"
+        label for="season" Choose season: 
+        select name ="season" 
+            - seasons.each do |season|
+                option value="#{season['season_id']}"#{season['season_name']}
+        label for="season2" Choose another season: 
+        select name ="season2"
+            - seasons.each do |season|
+                option value="#{season['season_id']}"#{season['season_name']}
+
+        label for="clothtype" Types:
+        select name = "clothtypes"
+            - clothtypes.each do |clothtype|
+                option value="#{clothtype['type_id']}"#{clothtype['type_name']}
+        label for="pattern" Choose pattern: 
+        select name="pattern"
+            - patterns.each do |pattern|
+                option value="#{pattern['pattern_id']}"#{pattern['pattern_name']}
+
+        label for="size" Choose size: 
+        input type="text" name="size" placeholder="Size"
+        label for="notes" Add description:
+        input type="text" name="notes" placeholder="Add description"    
+        label for="color_picker" Choose a color:
+        input type="color" id="color_picker" name="color_picker"
+        label for="image" Add image: 
+        input type="file"name="image"
+
+        input type="submit" value="Submit!"  

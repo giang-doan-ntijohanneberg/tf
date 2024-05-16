@@ -1,0 +1,54 @@
+doctype html
+html lang="en"
+  head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title Her Gorgeous Closet
+  body 
+    <!DOCTYPE html>
+html lang="en"
+    head
+        meta charset="UTF-8"/
+        meta name="viewport" content="width=device-width, initial-scale=1.0"/
+        title Document
+        link rel="stylesheet" href="/css/style2.css"/
+    body
+        nav
+          ul#nav_links              
+            - if session[:id] == nil 
+              li
+                a href="/" Hej
+            - elsif session[:username] == "admin"
+              li 
+                a href="/admin" Welcome Admin!
+            - else  
+              li
+                a href="/profile" Hej #{session[:username]}
+
+            - if session[:username] == "admin"
+              li 
+                a href="/admin/edit-user" User Info
+            - else 
+              li
+                a href="/profile/new" Add clothes
+
+            - if session[:username] == "admin"
+              li
+                a href="/admin/edit-data" Data Info
+            - else
+              li
+                a href="/filter" Find clothes
+
+            - if session[:id] == nil 
+              li
+                a href="/member" Log in
+              li
+            - else 
+                a href="/logout" Log out
+
+        - if flash[:notice]
+            .notice = flash[:notice]
+        == yield 
+        script src="/js/main.js"
+
+

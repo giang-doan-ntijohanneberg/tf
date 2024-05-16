@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Model
+  
+    &mdash; Documentation by YARD 0.9.36
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Model";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/custom.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (M)</a> &raquo;
+    
+    
+    <span class="title">Model</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Model
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>model/model.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#admin_delete_user-instance_method" title="#admin_delete_user (instance method)">#<strong>admin_delete_user</strong>(user_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes a user along with their garments and associated attributes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#admin_deletedata-instance_method" title="#admin_deletedata (instance method)">#<strong>admin_deletedata</strong>(season_id, clothtype_id, pattern_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes a season, cloth type, or pattern from the database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#admin_editdata-instance_method" title="#admin_editdata (instance method)">#<strong>admin_editdata</strong>(season, clothtype, pattern)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds a new season, cloth type, or pattern to the database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#admin_show_all_items-instance_method" title="#admin_show_all_items (instance method)">#<strong>admin_show_all_items</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches all garments along with their associated attributes (season, type, pattern).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#admin_show_user_item-instance_method" title="#admin_show_user_item (instance method)">#<strong>admin_show_user_item</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chosen_item-instance_method" title="#chosen_item (instance method)">#<strong>chosen_item</strong>(user_id, cloth_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches a specific garment from the user’s wardrobe.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#connect_execute-instance_method" title="#connect_execute (instance method)">#<strong>connect_execute</strong>(query, *params)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Executes a SQL query on the database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#connect_to_db-instance_method" title="#connect_to_db (instance method)">#<strong>connect_to_db</strong>(path)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Connects to the SQLite database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch_items-instance_method" title="#fetch_items (instance method)">#<strong>fetch_items</strong>(user_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches items from table ‘wardrobe’ for a specific user.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch_table-instance_method" title="#fetch_table (instance method)">#<strong>fetch_table</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches data from the ‘season’, ‘clothtypes’, and ‘pattern’ tables.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#item_delete-instance_method" title="#item_delete (instance method)">#<strong>item_delete</strong>(user_id, cloth_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes a garment from the user’s wardrobe.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#item_filter-instance_method" title="#item_filter (instance method)">#<strong>item_filter</strong>(user_id, season_id, pattern_id, type_id, color_id, size)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches wardrobe items for a specific user, filtered by season, pattern, type, color, and size.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#item_update-instance_method" title="#item_update (instance method)">#<strong>item_update</strong>(season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id, user_id, cloth_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Updates data of a specific garment in the user’s wardrobe.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#login-instance_method" title="#login (instance method)">#<strong>login</strong>(username, password)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Authenticates a user and logs user in, if username is admin redirect to ‘/admin’, in unsucessful log in redirect to ‘/member’ otherwise redirect to ‘/profile’.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#profile_add-instance_method" title="#profile_add (instance method)">#<strong>profile_add</strong>(season_id, season_id2, user_id, pattern_id, cloth_name, type_id, color_id, size, notes, image)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new garment to the user’s wardrobe.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register-instance_method" title="#register (instance method)">#<strong>register</strong>(username, password, password_confirm)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Registers a new user.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#require_login-instance_method" title="#require_login (instance method)">#<strong>require_login</strong>(session_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Ensures that a user is logged in before accessing certain routes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#select_all_users-instance_method" title="#select_all_users (instance method)">#<strong>select_all_users</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches all users from the database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_seasondata-instance_method" title="#show_seasondata (instance method)">#<strong>show_seasondata</strong>(user_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches data from table ‘season_attribute’ for a specific garment owned by a specific user Return data from table ‘season_attribute’ for a specific garment owned by a specific user.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="admin_delete_user-instance_method">
+  
+    #<strong>admin_delete_user</strong>(user_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes a user along with their garments and associated attributes.</p>
+
+<p>user_id [Interger] ID of the chosen user.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 223</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_admin_delete_user'>admin_delete_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_clothes'>clothes</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM wardrobe WHERE user_id =?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_clothes'>clothes</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM users WHERE id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM wardrobe WHERE user_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_clothes'>clothes</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cloth'>cloth</span><span class='op'>|</span>
+        <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_cloth'>cloth</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cloth_id</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM season_attribute WHERE cloth_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cloth'>cloth</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cloth_id</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="admin_deletedata-instance_method">
+  
+    #<strong>admin_deletedata</strong>(season_id, clothtype_id, pattern_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes a season, cloth type, or pattern from the database.</p>
+
+<p>season_id [Interger] ID of the season to be deleted. pattern_id [Interger] ID of the pattern to be deleted. type_id [Interger] ID of the cloth type to be deleted.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+260
+261
+262
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 260</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_admin_deletedata'>admin_deletedata</span><span class='lparen'>(</span><span class='id identifier rubyid_season_id'>season_id</span><span class='comma'>,</span> <span class='id identifier rubyid_clothtype_id'>clothtype_id</span><span class='comma'>,</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM season WHERE season_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_season_id'>season_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM season_attribute WHERE season_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_season_id'>season_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM clothtypes WHERE type_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_clothtype_id'>clothtype_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM pattern WHERE pattern_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="admin_editdata-instance_method">
+  
+    #<strong>admin_editdata</strong>(season, clothtype, pattern)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds a new season, cloth type, or pattern to the database.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 238</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_admin_editdata'>admin_editdata</span><span class='lparen'>(</span><span class='id identifier rubyid_season'>season</span><span class='comma'>,</span> <span class='id identifier rubyid_clothtype'>clothtype</span><span class='comma'>,</span> <span class='id identifier rubyid_pattern'>pattern</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_season'>season</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_season'>season</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO season (season_name) VALUES(?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_season'>season</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_clothtype'>clothtype</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_clothtype'>clothtype</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO clothtypes (type_name) VALUES(?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_clothtype'>clothtype</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_pattern'>pattern</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_pattern'>pattern</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO pattern (pattern_name) VALUES(?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_pattern'>pattern</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="admin_show_all_items-instance_method">
+  
+    #<strong>admin_show_all_items</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches all garments along with their associated attributes (season, type, pattern). Returns array containing all garments along with their associated attributes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 177</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_admin_show_all_items'>admin_show_all_items</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT wardrobe.*, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT cloth_id from wardrobe</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_seasonat'>seasonat</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='op'>|</span>
+        <span class='id identifier rubyid_seasonat'>seasonat</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT season_attribute.*, season.* FROM season_attribute JOIN season ON season_attribute.season_id = season.season_id WHERE season_attribute.cloth_id =?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='id identifier rubyid_items'>items</span><span class='comma'>,</span> <span class='id identifier rubyid_seasonat'>seasonat</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="admin_show_user_item-instance_method">
+  
+    #<strong>admin_show_user_item</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 200</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_admin_show_user_item'>admin_show_user_item</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='ivar'>@username</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT username FROM users WHERE id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>username</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT wardrobe.*, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id WHERE wardrobe.user_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT cloth_id from wardrobe WHERE user_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+    <span class='comment'>#cloth_id = cloth_id_row[&#39;cloth_id&#39;] unless cloth_id_row.nil?
+</span>
+    <span class='id identifier rubyid_seasonat'>seasonat</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='op'>|</span>
+        <span class='id identifier rubyid_seasonat'>seasonat</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT season_attribute.*, season.* FROM season_attribute JOIN season ON season_attribute.season_id = season.season_id WHERE season_attribute.cloth_id =?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='ivar'>@username</span><span class='comma'>,</span> <span class='id identifier rubyid_items'>items</span><span class='comma'>,</span> <span class='id identifier rubyid_seasonat'>seasonat</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="chosen_item-instance_method">
+  
+    #<strong>chosen_item</strong>(user_id, cloth_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches a specific garment from the user’s wardrobe. Returns all data of the specified item.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 105</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_chosen_item'>chosen_item</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_chosen_clothes'>chosen_clothes</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM wardrobe WHERE user_id=? AND cloth_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_chosen_clothes'>chosen_clothes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="connect_execute-instance_method">
+  
+    #<strong>connect_execute</strong>(query, *params)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executes a SQL query on the database. Returns results of the query as an array of hashes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_to_db-instance_method" title="Model#connect_to_db (method)">#connect_to_db</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_connect_execute'>connect_execute</span><span class='lparen'>(</span><span class='id identifier rubyid_query'>query</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_to_db'><span class='object_link'><a href="#connect_to_db-instance_method" title="Model#connect_to_db (method)">connect_to_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/projekt.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='id identifier rubyid_query'>query</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="connect_to_db-instance_method">
+  
+    #<strong>connect_to_db</strong>(path)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Connects to the SQLite database. Returns SQLite database object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_connect_to_db'>connect_to_db</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_results_as_hash'>results_as_hash</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_db'>db</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fetch_items-instance_method">
+  
+    #<strong>fetch_items</strong>(user_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches items from table ‘wardrobe’ for a specific user. Returns wardrobe items for the specified user.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fetch_items'>fetch_items</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_query'>query</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT wardrobe.*, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id WHERE wardrobe.user_id = ?</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_query'>query</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fetch_table-instance_method">
+  
+    #<strong>fetch_table</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches data from the ‘season’, ‘clothtypes’, and ‘pattern’ tables. Returns array containing data from the ‘season’, ‘clothtypes’, and ‘pattern’ tables.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fetch_table'>fetch_table</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_seasons'>seasons</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM season</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_clothtypes'>clothtypes</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM clothtypes</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_patterns'>patterns</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM pattern</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span><span class='id identifier rubyid_seasons'>seasons</span><span class='comma'>,</span> <span class='id identifier rubyid_clothtypes'>clothtypes</span><span class='comma'>,</span> <span class='id identifier rubyid_patterns'>patterns</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="item_delete-instance_method">
+  
+    #<strong>item_delete</strong>(user_id, cloth_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes a garment from the user’s wardrobe.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97
+98</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_item_delete'>item_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM wardrobe WHERE user_id=? AND cloth_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM season_attribute WHERE cloth_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="item_filter-instance_method">
+  
+    #<strong>item_filter</strong>(user_id, season_id, pattern_id, type_id, color_id, size)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches wardrobe items for a specific user, filtered by season, pattern, type, color, and size. user_id [Interger] ID of the user whose wardrobe items are to be fetched. season_id [Interger] ID of the season to filter by. pattern_id [Interger] ID of the pattern to filter by. type_id [Interger] ID of the cloth type to filter by. color_id [String] ID of the color to filter by. size [String] Size to filter by. Returns garments for the specified user and filters.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_to_db-instance_method" title="Model#connect_to_db (method)">#connect_to_db</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 129</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_item_filter'>item_filter</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_season_id'>season_id</span><span class='comma'>,</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span><span class='comma'>,</span> <span class='id identifier rubyid_type_id'>type_id</span><span class='comma'>,</span> <span class='id identifier rubyid_color_id'>color_id</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_to_db'><span class='object_link'><a href="#connect_to_db-instance_method" title="Model#connect_to_db (method)">connect_to_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/projekt.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_query'>query</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT wardrobe.*, season.season_name, clothtypes.type_name, pattern.pattern_name FROM wardrobe JOIN season ON wardrobe.season_id = season.season_id JOIN clothtypes ON wardrobe.type_id = clothtypes.type_id JOIN pattern ON wardrobe.pattern_id = pattern.pattern_id WHERE wardrobe.user_id = ?</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_filter_params'>filter_params</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rbracket'>]</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_season_id'>season_id</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+        <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wardrobe.season_id = ?</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_filter_params'>filter_params</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_season_id'>season_id</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_type_id'>type_id</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+        <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wardrobe.type_id = ?</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_filter_params'>filter_params</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_type_id'>type_id</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+        <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wardrobe.pattern_id =?</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_filter_params'>filter_params</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_color_id'>color_id</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_color_id'>color_id</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_color_id'>color_id</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#000000</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wardrobe.color_id =?</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_filter_params'>filter_params</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_color_id'>color_id</span>
+    <span class='kw'>end</span>
+
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_size'>size</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wardrobe.size = ?</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_filter_params'>filter_params</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_size'>size</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_conditions'>conditions</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+        <span class='id identifier rubyid_query'>query</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> AND </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_conditions'>conditions</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> AND </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='id identifier rubyid_query'>query</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_filter_params'>filter_params</span><span class='rparen'>)</span>
+
+    <span class='kw'>return</span> <span class='id identifier rubyid_items'>items</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="item_update-instance_method">
+  
+    #<strong>item_update</strong>(season_id, cloth_name, type_id, size, notes, image, pattern_id, color_id, user_id, cloth_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Updates data of a specific garment in the user’s wardrobe.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 114</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_item_update'>item_update</span><span class='lparen'>(</span><span class='id identifier rubyid_season_id'>season_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_name'>cloth_name</span><span class='comma'>,</span> <span class='id identifier rubyid_type_id'>type_id</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='id identifier rubyid_notes'>notes</span><span class='comma'>,</span> <span class='id identifier rubyid_image'>image</span><span class='comma'>,</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span><span class='comma'>,</span> <span class='id identifier rubyid_color_id'>color_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>UPDATE wardrobe SET season_id=?, cloth_name=?, type_id=?, size=?, notes=?, image=?, pattern_id=?, color_id=? WHERE user_id=? AND cloth_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_season_id'>season_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_name'>cloth_name</span><span class='comma'>,</span> <span class='id identifier rubyid_type_id'>type_id</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='id identifier rubyid_notes'>notes</span><span class='comma'>,</span> <span class='id identifier rubyid_image'>image</span><span class='comma'>,</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span><span class='comma'>,</span> <span class='id identifier rubyid_color_id'>color_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="login-instance_method">
+  
+    #<strong>login</strong>(username, password)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Authenticates a user and logs user in, if username is admin redirect to ‘/admin’, in unsucessful log in redirect to ‘/member’ otherwise redirect to ‘/profile’</p>
+
+<p>username [String] name filled by user in the log in form password [String] password filled by user in the log in form</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 311</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM users WHERE username = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Username does not exist</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/member</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_pwdigest'>pwdigest</span> <span class='op'>=</span> <span class='id identifier rubyid_result'>result</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pwdigest</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+        <span class='kw'>if</span> <span class='const'>BCrypt</span><span class='op'>::</span><span class='const'>Password</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_pwdigest'>pwdigest</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='id identifier rubyid_password'>password</span>
+            <span class='lbracket'>[</span><span class='id identifier rubyid_result'>result</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin</span><span class='tstring_end'>&quot;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/admin</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/profile</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+        <span class='kw'>else</span>
+            <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wrong password!</span><span class='tstring_end'>&quot;</span></span>
+            <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/member</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="profile_add-instance_method">
+  
+    #<strong>profile_add</strong>(season_id, season_id2, user_id, pattern_id, cloth_name, type_id, color_id, size, notes, image)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new garment to the user’s wardrobe</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_add'>profile_add</span><span class='lparen'>(</span><span class='id identifier rubyid_season_id'>season_id</span><span class='comma'>,</span> <span class='id identifier rubyid_season_id2'>season_id2</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_name'>cloth_name</span><span class='comma'>,</span> <span class='id identifier rubyid_type_id'>type_id</span><span class='comma'>,</span> <span class='id identifier rubyid_color_id'>color_id</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='id identifier rubyid_notes'>notes</span><span class='comma'>,</span> <span class='id identifier rubyid_image'>image</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO wardrobe (user_id, cloth_name, type_id, size, notes, image, pattern_id, color_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_name'>cloth_name</span><span class='comma'>,</span> <span class='id identifier rubyid_type_id'>type_id</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='id identifier rubyid_notes'>notes</span><span class='comma'>,</span> <span class='id identifier rubyid_image'>image</span><span class='comma'>,</span> <span class='id identifier rubyid_pattern_id'>pattern_id</span><span class='comma'>,</span> <span class='id identifier rubyid_color_id'>color_id</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT cloth_id FROM wardrobe WHERE user_id = ? AND cloth_name = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_name'>cloth_name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_cloth_id'>cloth_id</span> <span class='op'>=</span> <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cloth_id</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO season_attribute (cloth_id, season_id, season_nbr) VALUES (?, ?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='comma'>,</span> <span class='id identifier rubyid_season_id'>season_id</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO season_attribute (cloth_id, season_id, season_nbr) VALUES (?, ?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='comma'>,</span> <span class='id identifier rubyid_season_id2'>season_id2</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="register-instance_method">
+  
+    #<strong>register</strong>(username, password, password_confirm)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Registers a new user. If unsucessful registration redirect to ‘/member’, if sucessful redirect to ‘/profile’</p>
+
+<p>username [String] name filled by user in the register form password [String] password filled by user in the register form password_confirm [String] password confirm filled by user in the register form</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 276</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='comma'>,</span> <span class='id identifier rubyid_password_confirm'>password_confirm</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM users WHERE username = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_username'>username</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>||</span> <span class='id identifier rubyid_password'>password</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>||</span> <span class='id identifier rubyid_password_confirm'>password_confirm</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You must fill out all the fields</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/member</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+        <span class='comment'>#return [nil, nil]
+</span>    <span class='kw'>else</span>
+        <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_password'>password</span> <span class='op'>==</span> <span class='id identifier rubyid_password_confirm'>password_confirm</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+                <span class='id identifier rubyid_password_digest'>password_digest</span> <span class='op'>=</span> <span class='const'>BCrypt</span><span class='op'>::</span><span class='const'>Password</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+                <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO users (username, pwdigest) VALUES (?,?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span><span class='id identifier rubyid_password_digest'>password_digest</span><span class='rparen'>)</span>
+
+                <span class='id identifier rubyid_tagname'>tagname</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM users WHERE username = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+                <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tagname'>tagname</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+                <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tagname'>tagname</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+                <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/profile</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+            <span class='kw'>else</span>
+                <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Username already exists</span><span class='tstring_end'>&quot;</span></span>
+                <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/member</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+                <span class='comment'>#[nil, nil]
+</span>            <span class='kw'>end</span>
+        <span class='kw'>else</span>
+            <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Passwords do not match</span><span class='tstring_end'>&quot;</span></span>
+            <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/member</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+            <span class='comment'>#[nil, nil]
+</span>        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="require_login-instance_method">
+  
+    #<strong>require_login</strong>(session_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Ensures that a user is logged in before accessing certain routes. Redirects the user to ‘/’ if they are not logged in and trying to access certain pages. Redirects the user to ‘/’ if they are not authorized to access admin pages.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_require_login'>require_login</span><span class='lparen'>(</span><span class='id identifier rubyid_session_id'>session_id</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_info'>path_info</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_session_id'>session_id</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/member</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/profile/new</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/member/register</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/member/login</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/filter</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_info'>path_info</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_redirect'>redirect</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_session_id'>session_id</span> <span class='op'>!=</span> <span class='kw'>nil</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_session_id'>session_id</span> <span class='op'>!=</span> <span class='int'>4</span> <span class='op'>&amp;&amp;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/admin</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/admin/edit-user</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/admin/:id/show</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/admin/edit-data</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_info'>path_info</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_flash'>flash</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This is not your place!!!</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="select_all_users-instance_method">
+  
+    #<strong>select_all_users</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches all users from the database. Returns array containing all users.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+195
+196
+197
+198</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 195</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_select_all_users'>select_all_users</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_users'>users</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM users</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_users'>users</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="show_seasondata-instance_method">
+  
+    #<strong>show_seasondata</strong>(user_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches data from table ‘season_attribute’ for a specific garment owned by a specific user Return data from table ‘season_attribute’ for a specific garment owned by a specific user</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">#connect_execute</a></span></li>
+    
+  </ul>
+
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model/model.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_show_seasondata'>show_seasondata</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT cloth_id from wardrobe WHERE user_id=?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_seasonat'>seasonat</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_cloth_id_row'>cloth_id_row</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='op'>|</span>
+        <span class='id identifier rubyid_seasonat'>seasonat</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_connect_execute'><span class='object_link'><a href="#connect_execute-instance_method" title="Model#connect_execute (method)">connect_execute</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT season_attribute.*, season.* FROM season_attribute JOIN season ON season_attribute.season_id = season.season_id WHERE season_attribute.cloth_id =?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cloth_id'>cloth_id</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>return</span> <span class='id identifier rubyid_seasonat'>seasonat</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Wed May 15 22:45:44 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.2.2).
+</div>
+
+    </div>
+  </body>
+</html>
